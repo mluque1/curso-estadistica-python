@@ -14,7 +14,7 @@ class BorrachoTradicional(Borracho):
         return random.choice( [(0,1), (0,-1), (1,0), (-1,0)] )
 
 
-class BorrachoSureño(Borracho):
+class BorrachoSureno(Borracho):
     
     def __init__ (self, nombre):
         super().__init__(nombre)
