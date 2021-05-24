@@ -11,18 +11,24 @@ def tirar_dado(numero_de_tiros):
 
 
 def main(numero_de_tiros, intentos):
-    tiros = []
+    sumas = []
 
     for _ in range(intentos):
-        secuencia_de_tiros = tirar_dado(numero_de_tiros)
-        tiros.append(secuencia_de_tiros)
+        sec1 = tirar_dado(numero_de_tiros) #[1,2,3,4,5,6] + 
+        sec2 = tirar_dado(numero_de_tiros) #[1,2,5,6,3,4] = [2,4,8,10,8,10]
+        suma = []
+        for i, value1 in enumerate(sec1):
+            value2 = sec2[i]
+            suma.append(value1 + value2)
+        
+        sumas.append(suma)
     
-    tiros_con_1 = 0
-    for tiro in tiros:
-        if 1 in tiro:
-            tiros_con_1 += 1
+    tiros_exitosos = 0
+    for suma in sumas:
+        if 12 in suma:
+            tiros_exitosos += 1
 
-    probabilidad_tiros_con_1 = tiros_con_1 / intentos
+    probabilidad_tiros_con_1 = tiros_exitosos / intentos
     print(f'Probabilidad de obtener por lo menos un 1 en {numero_de_tiros} tiros: {probabilidad_tiros_con_1}')
 
 if __name__=='__main__':
