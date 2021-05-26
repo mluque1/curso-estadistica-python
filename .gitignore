@@ -2,3 +2,4 @@ venv
 pruebas.py
 __pycache__
 *.html
+estadisticas.py
